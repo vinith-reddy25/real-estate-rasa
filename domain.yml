@@ -1,0 +1,82 @@
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - buy_home
+  - sell_home
+  - inform_buy
+  - out_of_scope
+
+slots:
+    city:
+      type: unfeaturized
+      auto_fill: false
+    bathrooms:
+      type: unfeaturized
+      auto_fill: false
+    bedrooms:
+      type: unfeaturized
+      auto_fill: false
+    phone_number:
+      type: unfeaturized
+      auto_fill: false
+
+entities:
+    - city
+    - bathrooms
+    - bedrooms
+    - phone_number
+
+responses:
+
+  utter_ask_bathrooms:
+  - text: "How many bathrooms you are looking for?"
+
+  utter_ask_bedrooms:
+  - text: "How many bedrooms you are looking for?"
+
+  utter_ask_city:
+  - text: "Which city?"
+
+  utter_ask_phone_number:
+  - text: "Please provide your phone number?"
+
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_ask_continue:
+  - text: "Sorry, I don't quite understand. Do you want to continue?"
+
+  utter_slots_values:
+  - text: "Here's your entries log:\n
+            - City?: {city}\n
+            - Number of Bathrooms: {bathrooms}\n
+            - Number of Bedrooms?: {bedrooms}\n
+            - Phone Number: {phone_number}"
+  
+forms:
+  - buy_form
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
