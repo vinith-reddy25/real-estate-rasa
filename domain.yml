@@ -1,0 +1,116 @@
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - out_of_scope
+  - thankyou
+  - emer
+  - notemer
+  - support_ticket
+  - confirmemail
+  - buy_new_plan
+
+slots:
+    aboutenvironment:
+      type: unfeaturized
+    explainproblem:
+      type: unfeaturized
+    time:
+      type: unfeaturized
+    orgsize:
+      type: unfeaturized
+    emailid:
+      type: unfeaturized
+    plan:
+      type: unfeaturized
+
+
+forms:
+  - ticket_form
+  - ticket_emer_form
+  - buy_plan_form
+
+responses:
+  
+  utter_severity:
+  - text: "What is the severity?"
+    buttons:
+      - text: "p1"
+        payload: "/emer"
+      - text: "p2"
+        payload: "/notemer"
+      - text: "p3"
+        payload: "/notemer"
+
+  utter_ask_aboutenvironment:
+  - text: "Is your environment completely blocked?"
+
+  utter_ask_explainproblem:
+  - text: "Can you explain the problem?"
+
+  utter_ask_time:
+  - text: "What time the problem occured last time?"
+
+  utter_ask_orgsize:
+  - text: "What is your organization size?"
+
+  utter_ask_emailid:
+  - text: "Share your official email id?"
+  
+  utter_ask_plan:
+  - text: "Which plan you want to select?"
+    buttons:
+      - text: "Free Ad based"
+        payload: "/confirmemail"
+      - text: "Professional"
+        payload: "/confirmemail"
+      - text: "essential"
+        payload: "/confirmemail"
+
+  utter_confirmemail:
+  - text: "All details are submitted. A response has been sent to your email. Do you want to continue?"
+
+  
+  utter_greet:
+  - text: "Hi! How can I help you?"
+    buttons:
+      - title: "To create a support ticket"
+        payload: "/support_ticket"
+      - title: "Buy a new plan"
+        payload: "/buy_new_plan"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: "Did that help you?"
+
+  utter_happy:
+  - text: "Great, carry on!"
+
+  utter_goodbye:
+  - text: "Bye"
+
+  utter_iamabot:
+  - text: "I am a bot, powered by Rasa."
+
+  utter_ask_continue:
+  - text: "Sorry, I don't quite understand. Do you want to continue?"
+
+  utter_submit:
+  - text: "All details are submitted"
+
+  utter_slots_values:
+  - text: "Here's your entries log:\n
+            - problem: {explainproblem}\n
+            - Time: {time}"
+  
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
